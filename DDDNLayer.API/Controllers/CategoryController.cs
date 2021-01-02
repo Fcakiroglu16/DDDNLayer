@@ -1,10 +1,6 @@
-﻿using DDDNLayer.Application.Dtos;
-using DDDNLayer.Application.Interfaces;
-using Microsoft.AspNetCore.Http;
+﻿using DDDNLayer.Application.Category.Dtos;
+using DDDNLayer.Application.Category.Services;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace DDDNLayer.API.Controllers

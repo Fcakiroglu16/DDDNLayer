@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DDDNLayer.Application.Handlers.Category
+namespace DDDNLayer.Application.Category.Handlers
 {
     public class AddCategoryCommandHandler : CommandHandler, IRequestHandler<AddCategoryCommand, ValidationResult>
     {
@@ -31,6 +31,7 @@ namespace DDDNLayer.Application.Handlers.Category
 
             //Event fırlat
 
+            _context.Categories.Add(category);
             await _context.CommitAsync();
 
             return request.ValidationResult;

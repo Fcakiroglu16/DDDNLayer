@@ -1,10 +1,6 @@
 ﻿using AutoMapper;
-using DDDNLayer.Application.Dtos;
+using DDDNLayer.Application.Category.Dtos;
 using DDDNLayer.Domain.Commands.Category;
-using DDDNLayer.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DDDNLayer.Application
 {
@@ -12,7 +8,7 @@ namespace DDDNLayer.Application
     {
         public Mapping()
         {
-            CreateMap<Category, CategoryDto>().ReverseMap();
+            CreateMap<Domain.Entities.Category, CategoryDto>().ReverseMap();
             CreateMap<CategoryDto, AddCategoryCommand>().ReverseMap();
         }
     }

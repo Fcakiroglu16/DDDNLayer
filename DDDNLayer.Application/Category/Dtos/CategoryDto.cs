@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DDDNLayer.Application.Dtos
+namespace DDDNLayer.Application.Category.Dtos
 {
     public class CategoryDto
     {

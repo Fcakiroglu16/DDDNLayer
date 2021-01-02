@@ -1,11 +1,12 @@
-﻿using DDDNLayer.Application.Dtos;
+﻿using DDDNLayer.Application.Category.Dtos;
+using DDDNLayer.Application.Dtos;
 using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DDDNLayer.Application.Interfaces
+namespace DDDNLayer.Application.Category.Services
 {
     public interface ICategoryService
     {

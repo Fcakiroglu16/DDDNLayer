@@ -1,6 +1,5 @@
-using DDDNLayer.Application.Handlers.Category;
-using DDDNLayer.Application.Interfaces;
-using DDDNLayer.Application.Services;
+using DDDNLayer.Application.Category.Handlers;
+using DDDNLayer.Application.Category.Services;
 using DDDNLayer.Data;
 using DDDNLayer.Domain.Core.Mediator;
 using MediatR;
