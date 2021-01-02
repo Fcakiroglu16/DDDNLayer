@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DDDNLayer.Domain.Commands.Category
+namespace DDDNLayer.Domain.CategoryDomain
 {
     public abstract class CategoryCommand : Command
     {

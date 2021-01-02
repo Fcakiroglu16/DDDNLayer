@@ -1,11 +1,8 @@
 ﻿using DDDNLayer.Data;
-using DDDNLayer.Domain.Commands.Category;
+using DDDNLayer.Domain.CategoryDomain;
 using DDDNLayer.Domain.Core.Commands;
 using FluentValidation.Results;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 

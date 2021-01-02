@@ -19,9 +19,9 @@ namespace DDDNLayer.Application.Category.Services
             _mediatorHandler = mediatorHandler;
         }
 
-        public Task<ValidationResult> Add(CategoryDto categoryDto)
+        public Task<ValidationResult> Add(CreateCategoryDto categoryDto)
         {
-            var AddCategoryCommand = ObjectMapper.Mapper.Map<Domain.Commands.Category.AddCategoryCommand>(categoryDto);
+            var AddCategoryCommand = ObjectMapper.Mapper.Map<Domain.CategoryDomain.AddCategoryCommand>(categoryDto);
 
             return _mediatorHandler.SendCommand(AddCategoryCommand);
         }

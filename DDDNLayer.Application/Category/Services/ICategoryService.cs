@@ -10,6 +10,6 @@ namespace DDDNLayer.Application.Category.Services
 {
     public interface ICategoryService
     {
-        Task<ValidationResult> Add(CategoryDto categoryDto);
+        Task<ValidationResult> Add(CreateCategoryDto categoryDto);
     }
 }

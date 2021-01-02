@@ -1,5 +1,6 @@
 ﻿using DDDNLayer.Application.Category.Dtos;
 using DDDNLayer.Application.Category.Services;
+using DDDNLayer.Application.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -17,7 +18,7 @@ namespace DDDNLayer.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddCategory(CategoryDto categoryDto)
+        public async Task<IActionResult> AddCategory(CreateCategoryDto categoryDto)
         {
             var result = await _categoryService.Add(categoryDto);
 
