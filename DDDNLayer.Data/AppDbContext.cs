@@ -1,6 +1,7 @@
 ﻿using DDDNLayer.Data.Configurations;
 using DDDNLayer.Domain.Core;
 using DDDNLayer.Domain.Core.Mediator;
+using DDDNLayer.Domain.Core.Messaging;
 using DDDNLayer.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -25,6 +26,7 @@ namespace DDDNLayer.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Ignore<Event>();
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             base.OnModelCreating(modelBuilder);
         }
