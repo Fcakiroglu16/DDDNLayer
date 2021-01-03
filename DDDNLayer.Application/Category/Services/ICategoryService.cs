@@ -12,5 +12,7 @@ namespace DDDNLayer.Application.Category.Services
     public interface ICategoryService
     {
         Task<Response> Add(CreateCategoryDto categoryDto);
+
+        Task<Response> GetAll();
     }
 }

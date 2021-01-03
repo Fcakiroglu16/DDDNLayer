@@ -1,6 +1,7 @@
 ﻿using DDDNLayer.Domain.Core.Commands;
 using DDDNLayer.Domain.Core.Messaging;
 using DDDNLayer.Domain.Core.Models;
+using DDDNLayer.Domain.Core.Queries;
 using FluentValidation.Results;
 using MediatR;
 using System;
@@ -27,6 +28,11 @@ namespace DDDNLayer.Domain.Core.Mediator
         public Task<Response> SendCommand<T>(T command) where T : Command
         {
             return _mediator.Send(command);
+        }
+
+        public async Task<Response> SendQuery<T>(T query) where T : Query
+        {
+            return await _mediator.Send(query);
         }
     }
 }
