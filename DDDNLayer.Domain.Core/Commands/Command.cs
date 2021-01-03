@@ -1,4 +1,5 @@
-﻿using FluentValidation.Results;
+﻿using DDDNLayer.Domain.Core.Models;
+using FluentValidation.Results;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Text;
 
 namespace DDDNLayer.Domain.Core.Commands
 {
-    public abstract class Command : IRequest<ValidationResult>
+    public abstract class Command : IRequest<Response>
     {
         public DateTime Timestamp { get; private set; }
         public ValidationResult ValidationResult { get; set; }

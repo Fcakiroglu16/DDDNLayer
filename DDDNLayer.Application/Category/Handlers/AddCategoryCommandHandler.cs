@@ -1,14 +1,17 @@
-﻿using DDDNLayer.Data;
+﻿using DDDNLayer.Application.Category.Dtos;
+using DDDNLayer.Data;
 using DDDNLayer.Domain.CategoryDomain;
 using DDDNLayer.Domain.Core.Commands;
+using DDDNLayer.Domain.Core.Models;
 using FluentValidation.Results;
 using MediatR;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace DDDNLayer.Application.Category.Handlers
 {
-    public class AddCategoryCommandHandler : CommandHandler, IRequestHandler<AddCategoryCommand, ValidationResult>
+    public class AddCategoryCommandHandler : CommandHandler, IRequestHandler<AddCategoryCommand, Response>
     {
         private readonly AppDbContext _context;
 
@@ -17,21 +20,27 @@ namespace DDDNLayer.Application.Category.Handlers
             _context = context;
         }
 
-        public async Task<ValidationResult> Handle(AddCategoryCommand request, CancellationToken cancellationToken)
+        public async Task<Response> Handle(AddCategoryCommand request, CancellationToken cancellationToken)
         {
             if (!request.IsValid())
             {
-                return request.ValidationResult;
+                var errors = request.ValidationResult.Errors.ToList().Select(x => x.ErrorMessage).ToList();
+
+                var errorDto = new ErrorDto(errors, true);
+
+                return Response.UnSuccess(errorDto, 400);
             }
 
-            var category = new DDDNLayer.Domain.Entities.Category(request.Name, request.Type);
+            var category = new Domain.Entities.Category(request.Name, request.Type);
 
             //Event fırlat
 
             _context.Categories.Add(category);
             await _context.CommitAsync();
 
-            return request.ValidationResult;
+            var newCategoryDto = ObjectMapper.Mapper.Map<CategoryDto>(category);
+
+            return Response.Success(newCategoryDto, 200);
         }
     }
 }

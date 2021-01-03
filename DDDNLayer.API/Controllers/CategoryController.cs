@@ -8,7 +8,7 @@ namespace DDDNLayer.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoryController : ControllerBase
+    public class CategoryController : CustomBaseController
     {
         private readonly ICategoryService _categoryService;
 
@@ -20,9 +20,8 @@ namespace DDDNLayer.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddCategory(CreateCategoryDto categoryDto)
         {
-            var result = await _categoryService.Add(categoryDto);
-
-            return Ok(result);
+            var response = await _categoryService.Add(categoryDto);
+            return GetInstanceActionResult(response);
         }
     }
 }

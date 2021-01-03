@@ -2,6 +2,7 @@
 using DDDNLayer.Application.Dtos;
 using DDDNLayer.Data;
 using DDDNLayer.Domain.Core.Mediator;
+using DDDNLayer.Domain.Core.Models;
 using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
@@ -19,11 +20,11 @@ namespace DDDNLayer.Application.Category.Services
             _mediatorHandler = mediatorHandler;
         }
 
-        public Task<ValidationResult> Add(CreateCategoryDto categoryDto)
+        public async Task<Response> Add(CreateCategoryDto categoryDto)
         {
             var AddCategoryCommand = ObjectMapper.Mapper.Map<Domain.CategoryDomain.AddCategoryCommand>(categoryDto);
 
-            return _mediatorHandler.SendCommand(AddCategoryCommand);
+            return await _mediatorHandler.SendCommand(AddCategoryCommand);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using DDDNLayer.Domain.Core.Commands;
 using DDDNLayer.Domain.Core.Messaging;
+using DDDNLayer.Domain.Core.Models;
 using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,6 @@ namespace DDDNLayer.Domain.Core.Mediator
     {
         Task PublishEvent<T>(T @event) where T : Event;
 
-        Task<ValidationResult> SendCommand<T>(T command) where T : Command;
+        Task<Response> SendCommand<T>(T command) where T : Command;
     }
 }

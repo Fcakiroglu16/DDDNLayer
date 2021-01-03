@@ -1,5 +1,6 @@
 ﻿using DDDNLayer.Domain.Core.Commands;
 using DDDNLayer.Domain.Core.Messaging;
+using DDDNLayer.Domain.Core.Models;
 using FluentValidation.Results;
 using MediatR;
 using System;
@@ -23,7 +24,7 @@ namespace DDDNLayer.Domain.Core.Mediator
             return _mediator.Publish(@event);
         }
 
-        public Task<ValidationResult> SendCommand<T>(T command) where T : Command
+        public Task<Response> SendCommand<T>(T command) where T : Command
         {
             return _mediator.Send(command);
         }

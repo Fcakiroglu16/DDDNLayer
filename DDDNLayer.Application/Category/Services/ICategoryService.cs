@@ -1,5 +1,6 @@
 ﻿using DDDNLayer.Application.Category.Dtos;
 using DDDNLayer.Application.Dtos;
+using DDDNLayer.Domain.Core.Models;
 using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,6 @@ namespace DDDNLayer.Application.Category.Services
 {
     public interface ICategoryService
     {
-        Task<ValidationResult> Add(CreateCategoryDto categoryDto);
+        Task<Response> Add(CreateCategoryDto categoryDto);
     }
 }

@@ -1,4 +1,5 @@
-﻿using FluentValidation.Results;
+﻿using DDDNLayer.Domain.Core.Models;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -12,16 +13,12 @@ namespace DDDNLayer.API.Controllers
     [ApiController]
     public class CustomBaseController : ControllerBase
     {
-        protected IActionResult Response(ValidationResult validationResult, int successfullStatusCode)
+        protected IActionResult GetInstanceActionResult(Response response)
         {
-            if (validationResult.IsValid)
+            return new ObjectResult(response)
             {
-            }
-            else
-            {
-            }
-
-            return Ok();
+                StatusCode = response.StatusCode
+            };
         }
     }
 }

@@ -13,7 +13,9 @@ namespace DDDNLayer.Domain.CategoryDomain
 
         public override bool IsValid()
         {
-            return new AddCategoryCommandValidator().Validate(this).IsValid;
+            ValidationResult = new AddCategoryCommandValidator().Validate(this);
+
+            return ValidationResult.IsValid;
         }
     }
 }

@@ -5,41 +5,41 @@ using System.Text.Json.Serialization;
 
 namespace DDDNLayer.Domain.Core.Models
 {
-    public class Response<T> where T : class
+    public class Response
     {
-        public T Data { get; private set; }
+        public Object Data { get; private set; }
         public int StatusCode { get; private set; }
 
         [JsonIgnore]
         public bool IsSuccessful { get; private set; }
 
-        public ErrorDto Error { get; private set; }
+        public ErrorDto Fail { get; private set; }
 
-        public static Response<T> Success(T data, int statusCode)
+        public static Response Success(Object data, int statusCode)
         {
-            return new Response<T> { Data = data, StatusCode = statusCode, IsSuccessful = true };
+            return new Response { Data = data, StatusCode = statusCode, IsSuccessful = true };
         }
 
-        public static Response<T> Success(int statusCode)
+        public static Response Success(int statusCode)
         {
-            return new Response<T> { Data = default, StatusCode = statusCode, IsSuccessful = true };
+            return new Response { Data = null, StatusCode = statusCode, IsSuccessful = true };
         }
 
-        public static Response<T> Fail(ErrorDto errorDto, int statusCode)
+        public static Response UnSuccess(ErrorDto errorDto, int statusCode)
         {
-            return new Response<T>
+            return new Response
             {
-                Error = errorDto,
+                Fail = errorDto,
                 StatusCode = statusCode,
                 IsSuccessful = false
             };
         }
 
-        public static Response<T> Fail(string errorMessage, int statusCode, bool isShow)
+        public static Response UnSuccess(string errorMessage, int statusCode, bool isShow)
         {
             var errorDto = new ErrorDto(errorMessage, isShow);
 
-            return new Response<T> { Error = errorDto, StatusCode = statusCode, IsSuccessful = false };
+            return new Response { Fail = errorDto, StatusCode = statusCode, IsSuccessful = false };
         }
     }
 }
