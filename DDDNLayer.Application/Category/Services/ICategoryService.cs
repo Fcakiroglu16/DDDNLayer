@@ -14,5 +14,7 @@ namespace DDDNLayer.Application.Category.Services
         Task<Response> Add(CreateCategoryDto categoryDto);
 
         Task<Response> GetAll();
+
+        Task<Response> GetAllByName(string name);
     }
 }

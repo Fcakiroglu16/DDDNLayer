@@ -25,6 +25,13 @@ namespace DDDNLayer.API.Controllers
             return GetInstanceActionResult(response);
         }
 
+        [HttpGet("{name}")]
+        public async Task<IActionResult> GetAllByName(string name)
+        {
+            var response = await _categoryService.GetAllByName(name);
+            return GetInstanceActionResult(response);
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddCategory(CreateCategoryDto categoryDto)
         {

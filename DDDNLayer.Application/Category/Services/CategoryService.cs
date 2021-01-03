@@ -32,5 +32,10 @@ namespace DDDNLayer.Application.Category.Services
         {
             return await _mediatorHandler.SendQuery(new GetCategoryListQuery());
         }
+
+        public async Task<Response> GetAllByName(string name)
+        {
+            return await _mediatorHandler.SendQuery(new GetCategoryListByNameQuery() { Name = name });
+        }
     }
 }
