@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DDDNLayer.Application.Category.Handlers
 {
-    public class AddCategoryCommandHandler : CommandHandler, IRequestHandler<AddCategoryCommand, Response>
+    public class AddCategoryCommandHandler : IRequestHandler<AddCategoryCommand, Response>
     {
         private readonly AppDbContext _context;
 
@@ -31,11 +31,7 @@ namespace DDDNLayer.Application.Category.Handlers
                 return Response.UnSuccess(errorDto, 400);
             }
 
-            var category = new Domain.Entities.Category(request.Name, request.Type);
-
-            //Event fırlat
-
-            _context.Categories.Add(category);
+            var category = _context.Categories.Add(new Domain.CategoryAggregate.Category(request.Name, request.Type));
             await _context.CommitAsync();
 
             var newCategoryDto = ObjectMapper.Mapper.Map<CategoryDto>(category);

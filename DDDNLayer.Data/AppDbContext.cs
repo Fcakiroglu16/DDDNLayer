@@ -2,7 +2,7 @@
 using DDDNLayer.Domain.Core;
 using DDDNLayer.Domain.Core.Mediator;
 using DDDNLayer.Domain.Core.Messaging;
-using DDDNLayer.Domain.Entities;
+using DDDNLayer.Domain.CategoryAggregate;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -37,10 +37,10 @@ namespace DDDNLayer.Data
 
             var domainEvents = domainEntities.SelectMany(x => x.Entity.DomainEvents).ToList();
 
-            domainEvents.Select(async (e) =>
-            {
-                await _mediatorHandler.PublishEvent(e);
-            });
+            //domainEvents.Select(async (e) =>
+            //{
+            //    await _mediatorHandler.PublishEvent(e);
+            //});
 
             return await SaveChangesAsync() > 0;
         }

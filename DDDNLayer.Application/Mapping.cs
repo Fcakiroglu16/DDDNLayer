@@ -9,7 +9,7 @@ namespace DDDNLayer.Application
     {
         public Mapping()
         {
-            CreateMap<Domain.Entities.Category, CategoryDto>().ReverseMap();
+            CreateMap<Domain.CategoryAggregate.Category, CategoryDto>().ReverseMap();
             CreateMap<CreateCategoryDto, AddCategoryCommand>().ReverseMap();
         }
     }

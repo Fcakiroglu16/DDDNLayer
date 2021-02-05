@@ -1,4 +1,4 @@
-﻿using DDDNLayer.Domain.Entities;
+﻿using DDDNLayer.Domain.CategoryAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
