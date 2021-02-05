@@ -1,9 +1,10 @@
-﻿using DDDNLayer.Domain.Core.Queries;
+﻿using DDDNLayer.Application.Queries;
+
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DDDNLayer.Domain.CategoryDomain.Queries
+namespace DDNLayer.Application.Queries
 {
     public class GetCategoryListByNameQuery : Query
     {

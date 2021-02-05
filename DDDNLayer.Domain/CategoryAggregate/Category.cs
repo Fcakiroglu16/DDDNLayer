@@ -20,9 +20,9 @@ namespace DDDNLayer.Domain.CategoryAggregate
             Type = type;
         }
 
-        public void AddProduct(Product newProduct)
+        public void AddProduct(string name, decimal price, int stock, int height, int width, string color)
         {
-            _products.Add(newProduct);
+            _products.Add(new Product(name, price, stock, height, width, color));
         }
 
         protected Category()

@@ -10,5 +10,18 @@ namespace DDDNLayer.Domain.CategoryAggregate
         public string Name { get; private set; }
         public decimal Price { get; private set; }
         public int Stock { get; private set; }
+        public ProductFeature ProductFeature { get; private set; }
+
+        public Product()
+        {
+        }
+
+        public Product(string name, decimal price, int stock, int height, int width, string color)
+        {
+            Name = name;
+            Price = price;
+            Stock = stock;
+            ProductFeature = new ProductFeature(height, width, color);
+        }
     }
 }

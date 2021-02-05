@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DDDNLayer.Domain.Core.Commands
+namespace DDDNLayer.Application.Commands
 {
     public abstract class Command : IRequest<Response>
     {

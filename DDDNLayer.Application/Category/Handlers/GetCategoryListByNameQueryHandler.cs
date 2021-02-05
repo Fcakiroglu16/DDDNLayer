@@ -1,7 +1,7 @@
 ﻿using DDDNLayer.Application.Category.Dtos;
 using DDDNLayer.Data;
-using DDDNLayer.Domain.CategoryDomain.Queries;
 using DDDNLayer.Domain.Core.Models;
+using DDNLayer.Application.Queries;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System;

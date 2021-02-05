@@ -1,11 +1,12 @@
-﻿using DDDNLayer.Domain.CategoryDomain;
+﻿using DDDNLayer.Application.Commands;
+
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DDDDNLayer.Domain.CategoryDomain.Validations
+namespace DDDNLayer.Application.Validations
 {
-    internal class AddCategoryCommandValidator : CategoryValidator<AddCategoryCommand>
+    public class AddCategoryCommandValidator : CategoryValidator<AddCategoryCommand>
     {
         public AddCategoryCommandValidator()
         {

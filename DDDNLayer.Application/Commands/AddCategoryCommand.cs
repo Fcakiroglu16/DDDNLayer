@@ -1,7 +1,7 @@
-﻿using DDDDNLayer.Domain.CategoryDomain.Validations;
+﻿using DDDNLayer.Application.Validations;
 using FluentValidation;
 
-namespace DDDNLayer.Domain.CategoryDomain
+namespace DDDNLayer.Application.Commands
 {
     public class AddCategoryCommand : CategoryCommand
     {

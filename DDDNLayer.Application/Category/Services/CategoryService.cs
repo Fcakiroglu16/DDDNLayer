@@ -1,9 +1,10 @@
 ﻿using DDDNLayer.Application.Category.Dtos;
 using DDDNLayer.Application.Dtos;
+using DDDNLayer.Application.Mediator;
 using DDDNLayer.Data;
-using DDDNLayer.Domain.CategoryDomain.Queries;
-using DDDNLayer.Domain.Core.Mediator;
+
 using DDDNLayer.Domain.Core.Models;
+using DDNLayer.Application.Queries;
 using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace DDDNLayer.Application.Category.Services
 
         public async Task<Response> Add(CreateCategoryDto categoryDto)
         {
-            var AddCategoryCommand = ObjectMapper.Mapper.Map<Domain.CategoryDomain.AddCategoryCommand>(categoryDto);
+            var AddCategoryCommand = ObjectMapper.Mapper.Map<DDDNLayer.Application.Commands.AddCategoryCommand>(categoryDto);
 
             return await _mediatorHandler.SendCommand(AddCategoryCommand);
         }

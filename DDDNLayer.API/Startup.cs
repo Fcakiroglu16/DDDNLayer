@@ -1,7 +1,8 @@
 using DDDNLayer.Application.Category.Handlers;
 using DDDNLayer.Application.Category.Services;
+using DDDNLayer.Application.Mediator;
 using DDDNLayer.Data;
-using DDDNLayer.Domain.Core.Mediator;
+
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

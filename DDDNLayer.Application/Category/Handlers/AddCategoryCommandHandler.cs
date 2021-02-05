@@ -1,7 +1,7 @@
 ﻿using DDDNLayer.Application.Category.Dtos;
+using DDDNLayer.Application.Commands;
 using DDDNLayer.Data;
-using DDDNLayer.Domain.CategoryDomain;
-using DDDNLayer.Domain.Core.Commands;
+
 using DDDNLayer.Domain.Core.Models;
 using FluentValidation.Results;
 using MediatR;
@@ -32,7 +32,7 @@ namespace DDDNLayer.Application.Category.Handlers
             }
 
             var category = _context.Categories.Add(new Domain.CategoryAggregate.Category(request.Name, request.Type));
-            await _context.CommitAsync();
+            //     await _context.CommitAsync();
 
             var newCategoryDto = ObjectMapper.Mapper.Map<CategoryDto>(category);
 

@@ -1,9 +1,8 @@
-﻿using DDDNLayer.Domain.Core.Commands;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DDDNLayer.Domain.CategoryDomain
+namespace DDDNLayer.Application.Commands
 {
     public abstract class CategoryCommand : Command
     {

@@ -1,10 +1,10 @@
-﻿using DDDNLayer.Domain.CategoryDomain;
+﻿using DDDNLayer.Application.Commands;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DDDDNLayer.Domain.CategoryDomain.Validations
+namespace DDDNLayer.Application.Validations
 {
     public abstract class CategoryValidator<T> : AbstractValidator<T> where T : CategoryCommand
     {
